@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Efficiency Prediction</title>
+</head>
+<body>
+    <style>
+        h2 {
+            text-align:left;
+            text-size-adjust :40px;
+            color:red;
+            }
+            input {
+                color:black;
+                width: 50%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            text-align: center;
+                
+            }
+            button {
+                background-color: aqua;
+                color: #000;
+                 align-items: center;
+            }
+            h3 {
+            text-align:left;
+            margin-top: 40px;
+            text-size-adjust :40px;
+
+        }
+    </style>
+    <h2>Predict Heating & Cooling Load</h2>
+    <form action="{{ url_for('predict') }}" method="post">
+        <label>Enter Features (X1 to X8):</label><br>
+        <input type="text" name="X1" placeholder="Relative Compactness" required><br>
+        <input type="text" name="X2" placeholder="Surface Area" required><br>
+        <input type="text" name="X3" placeholder="Wall Area" required><br>
+        <input type="text" name="X4" placeholder="Roof Area" required><br>
+        <input type="text" name="X5" placeholder="Overall Height" required><br>
+        <input type="text" name="X6" placeholder="Orientation" required><br>
+        <input type="text" name="X7" placeholder="Glazing Area" required><br>
+        <input type="text" name="X8" placeholder="Glazing Area Distribution" required><br>
+        <button type="submit">Predict</button>
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+</body>
+</html>
